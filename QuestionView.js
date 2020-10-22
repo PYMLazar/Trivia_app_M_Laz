@@ -24,7 +24,6 @@ class QuestionView extends Component {
   getQuestions = () => {
     $.ajax({
       url: `/questions?page=${this.state.page}`, //TODO: update request URL
-      //url: http://127.0.0.1:5000/questions?page=${this.state.page}, //TODO: update request URL
       type: "GET",
       success: (result) => {
         this.setState({
@@ -119,7 +118,7 @@ class QuestionView extends Component {
       }
     }
   }
-  
+
   render() {
     return (
       <div className="question-view">
@@ -128,12 +127,12 @@ class QuestionView extends Component {
           <ul>
             {Object.keys(this.state.categories).map((id, ) => (
               <li key={id} onClick={() => {this.getByCategory(id)}}>
-                {this.state.categories[id]} 
-                <img className="category" src={`${this.state.categories[id]}.svg`}/> 
-              </li>  
+                {this.state.categories[id]}
+                <img className="category" src={`${this.state.categories[id]}.svg`}/>
+              </li>
             ))}
           </ul>
-          <Search submitSearch={this.submitSearch}/> 
+          <Search submitSearch={this.submitSearch}/>
         </div>
         <div className="questions-list">
           <h2>Questions</h2>
